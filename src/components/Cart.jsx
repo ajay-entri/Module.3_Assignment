@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 const ProductCard = React.lazy(() => import('./ProductCard'))
