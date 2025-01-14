@@ -11,8 +11,8 @@ function ProductCard({ item }) {
 
     const dispatch = useDispatch()
 
-    const addProductToCart = (id) => {
-        alert(`${id} added to cart`)
+    const addProductToCart = (item) => {
+        alert(`${item.title} added to cart`)
         dispatch(addToCart(item))
     }
 
@@ -35,7 +35,7 @@ function ProductCard({ item }) {
 
                     {cartItems.some((product) => product.id === item.id) ?
                         <Button variant="dark" onClick={() => removeCart(item?.id)}>Remove from cart</Button> :
-                        <Button variant="success" onClick={() => addProductToCart(item?.id)}>Add to cart</Button>
+                        <Button variant="success" onClick={() => addProductToCart(item)}>Add to cart</Button>
                     }
                 </div>
 

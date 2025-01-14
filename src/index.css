@@ -8,3 +8,10 @@
   width: 300px;
   object-fit: contain;
 }
+
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

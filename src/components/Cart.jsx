@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import ProductCard from './ProductCard';
+const ProductCard = React.lazy(() => import('./ProductCard'))
 import { useSelector } from 'react-redux';
+import Loading from './Loading';
+
 
 function Cart() {
     const cartItems = useSelector((state) => state.cart.value)
@@ -26,8 +28,9 @@ function Cart() {
                     {cartItems.length ?
                         cartItems.map((product) => (
                             <div className="mb-3">
-                                < ProductCard item={product} />
-                            </div>
+                                <Suspense fallback={<Loading />}>
+                                    < ProductCard item={product} />
+                                </Suspense>                            </div>
                         )) :
                         <p>Cart is empty</p>
                     }

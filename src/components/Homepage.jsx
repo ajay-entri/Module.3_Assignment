@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductCard from './ProductCard'
 import Header from './Header'
+import Loading from './Loading'
 
 function Homepage() {
     const [products, setProducts] = useState([])
@@ -22,11 +23,12 @@ function Homepage() {
                 <h1>Products</h1>
                 <div className='row g-3'>
                     {
-                        products.map((product) => (
+                        products.length ? products.map((product) => (
                             <div className="col-md-6 col-lg-3">
                                 <ProductCard item={product} />
                             </div>
-                        ))
+                        )) :
+                            <Loading />
                     }
                 </div>
             </div>
